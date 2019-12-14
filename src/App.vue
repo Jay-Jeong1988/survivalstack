@@ -199,9 +199,7 @@ a:hover {
 }
 #main {
   background-image: url(
-    http://ik.imagekit.io/kitkitkitit/tr:q-100,
-    ar-4-6,
-    w-1000/campfire.jpg
+    http://ik.imagekit.io/kitkitkitit/tr:q-100,ar-4-6,w-1000/campfire.jpg
   );
 }
 .showMenuBtn {

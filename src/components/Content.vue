@@ -50,7 +50,7 @@ export default {
 
 .content {
   margin-top: 4em;
-  padding: 2em;
+  padding: 1.7em;
   padding-right: 0;
 }
 
@@ -59,19 +59,19 @@ export default {
 }
 .content > div > * {
   display: inline-block;
-  width: calc((100vw - 16em - 7.8em) * .33);
-  margin-right: 2em;
-  margin-bottom: 2em;
+  width: calc((100vw - 16em - 6.6em) * .33);
+  margin-right: 1.7em;
+  margin-bottom: 1.7em;
 }
 
 @media only screen and (max-width: 924px) {
   .content > div > * {
-    width: calc((100vw - 6em) * .5);
+    width: calc((100vw - 5.5em) * .5);
   }
 }
 @media only screen and (max-width: 600px) {
   .content > div > * {
-    width: calc((100vw - 4em));
+    width: calc((100vw - 3.8em));
   }
 }
 </style>

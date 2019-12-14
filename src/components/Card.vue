@@ -3,44 +3,44 @@
     <router-link :to="`/gears/${item.name}`">
       <b-card
         style="
-            white-space: nowrap;
+            max-height: 180px;
             border-radius: 10px;
-            font-family: 'Fredericka the Great';
-             text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            overflow: hidden;
              "
         no-body
-        text-variant="white"
         :bg-variant="displayCardBg"
       >
         <b-card-img
           style="
             filter: contrast(0.5);
-            max-height: 180px;
             border-radius: 10px;
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
             "
           :src="`${item.pictureUrl}`"
           alt="item image"
+          fluid="true"
         ></b-card-img>
-        <b-card-header style="display: flex; justify-content: space-between; align-items: center; overflow: scroll; padding: .5rem 1.25rem">
-          <div
-            class="headerIcons"
-            style="display: flex; justify-content: space-between; min-width: 4em;"
-          >
-            <span class="categoryIcon">
-              <img :src="iconSource" />
-            </span>
-            <span class="checkIcon">
-              <button @click="toggleCheckIcon">
-                <img :src="`./img/icons/${displayCheckIcon}.svg`" />
-              </button>
-            </span>
-          </div>
-          <div class="buffer"></div>
-          <h1>{{item.name[0].toUpperCase() + item.name.slice(1)}}</h1>
-        </b-card-header>
       </b-card>
+      <div
+        class="card-header"
+        :class="{'bg-dark': this.item.default, 'bg-secondary': !this.item.default}"
+      >
+        <div class="headerIcons">
+          <span class="categoryIcon">
+            <img :src="iconSource" />
+          </span>
+          <span class="checkIcon">
+            <button @click="toggleCheckIcon">
+              <img :src="`./img/icons/${displayCheckIcon}.svg`" />
+            </button>
+          </span>
+        </div>
+        <div class="buffer"></div>
+        <h1>{{item.name[0].toUpperCase() + item.name.slice(1)}}</h1>
+      </div>
     </router-link>
   </div>
 </template>
@@ -79,14 +79,34 @@ export default {
 .headerIcons img {
   width: 1.8em;
 }
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: scroll;
+  padding: 0.5rem 1.25rem;
+  font-family: "Fredericka the Great";
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
+  white-space: nowrap;
+  color: white;
+  border-radius: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
 .card-header h1 {
   margin-bottom: 0;
 }
 .buffer {
   min-width: 1em;
 }
+.headerIcons {
+  display: flex;
+  justify-content: space-between;
+  min-width: 4em;
+}
 .headerIcons button {
   background-color: transparent;
   border: none;
 }
+
 </style>
