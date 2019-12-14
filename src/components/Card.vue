@@ -108,5 +108,9 @@ export default {
   background-color: transparent;
   border: none;
 }
-
+@media only screen and (min-width: 450px) and (max-width: 600px){
+  .card > img {
+    max-height: 200px;
+  }
+}
 </style>

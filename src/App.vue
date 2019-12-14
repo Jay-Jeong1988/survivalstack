@@ -221,6 +221,8 @@ a:hover {
   #main {
     background-position: bottom;
   }
+}
+@media only screen and (max-width: 924px) {
   .showMenuBtn {
     display: flex;
     align-items: center;
