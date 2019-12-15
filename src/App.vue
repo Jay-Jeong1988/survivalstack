@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <Menu :class="{showMenu: isMenu}"></Menu>
+    <Menu :class="{showMenu: isMenu}" :currentPage="currentPage"></Menu>
     <div id="main">
       <Navbar :totalItemCount="totalItemCount" :checkedItemCount="checkedItemCount"></Navbar>
-      <router-view :customItems="customItems" :defaultItems="defaultItems" />
+      <router-view :customItems="customItems" :defaultItems="defaultItems" :currentPage="currentPage"/>
       <div class="showMenuBtn" @click="toggleMenu">
         <p>Show filters</p>
       </div>
@@ -23,6 +23,7 @@ export default {
   components: { Menu, Navbar },
   data() {
     return {
+      currentPage: "gear list",
       isMenu: false,
       user: null,
       customItems: [
@@ -30,32 +31,32 @@ export default {
           name: "jerky",
           default: false,
           category: "food",
-          pictureUrl:
-            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024/jerky.jpg",
+          thumbnailUrl:
+            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024/jerky-creamy50.jpg",
           checked: false
         },
         {
           name: "passport",
           default: false,
           category: "personal",
-          pictureUrl:
-            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024/passport.jpg",
+          thumbnailUrl:
+            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024/passport-creamy50.jpg",
           checked: false
         },
         {
           name: "tent",
           default: false,
           category: "shelter",
-          pictureUrl:
-            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024/tent.jpg",
+          thumbnailUrl:
+            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024/tent-creamy50.jpg",
           checked: false
         },
         {
           name: "sleeping bag",
           default: false,
           category: "shelter",
-          pictureUrl:
-            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024,fo-bottom/sleeping bag.jpg",
+          thumbnailUrl:
+            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024,fo-bottom/sleeping-bag-creamy50.jpg",
           checked: false
         }
       ],
@@ -64,88 +65,88 @@ export default {
           name: "knife",
           default: true,
           category: "tool",
-          pictureUrl:
-            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024/knife.jpg",
+          thumbnailUrl:
+            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024/knife-creamy50.jpg",
           checked: true
         },
         {
           name: "backpack",
           default: true,
           category: "carrier",
-          pictureUrl:
-            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024,cm-resize/backpack.jpg",
+          thumbnailUrl:
+            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024,cm-resize/backpack-creamy50.jpg",
           checked: false
         },
         {
           name: "flashlight",
           default: true,
           category: "tool",
-          pictureUrl:
-            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024,cm-resize/flashlight.jpg",
+          thumbnailUrl:
+            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024,cm-resize/flashlight-creamy50.jpg",
           checked: false
         },
         {
           name: "compass",
           default: true,
           category: "tool",
-          pictureUrl:
-            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024,cm-resize/compass.jpg",
+          thumbnailUrl:
+            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024,cm-resize/compass-creamy50.jpg",
           checked: false
         },
         {
           name: "watch",
           default: true,
           category: "tool",
-          pictureUrl:
-            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024,cm-resize/watch.jpg",
+          thumbnailUrl:
+            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024,cm-resize/watch-creamy50.jpg",
           checked: false
         },
         {
           name: "magnesium fire starter",
           default: true,
           category: "tool",
-          pictureUrl:
-            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024/magnesium fire starter.jpg",
+          thumbnailUrl:
+            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024/magnesium-fire-starter-creamy50.jpg",
           checked: false
         },
         {
           name: "lighter",
           default: true,
           category: "tool",
-          pictureUrl:
-            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024/lighter.jpg",
+          thumbnailUrl:
+            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024/lighter-creamy50.jpg",
           checked: false
         },
         {
           name: "nutrition bar",
           default: true,
           category: "food",
-          pictureUrl:
-            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024/nutrition bar.jpg",
+          thumbnailUrl:
+            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024/nutrition-bar-creamy50.jpg",
           checked: false
         },
         {
           name: "gloves",
           default: true,
           category: "protection",
-          pictureUrl:
-            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024/gloves.jpg",
+          thumbnailUrl:
+            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024/gloves-creamy50.jpg",
           checked: false
         },
         {
           name: "shoes",
           default: true,
           category: "protection",
-          pictureUrl:
-            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024/shoes.jpeg",
+          thumbnailUrl:
+            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024/shoes-creamy50.jpg",
           checked: false
         },
         {
           name: "jacket",
           default: true,
           category: "protection",
-          pictureUrl:
-            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024/jacket.jpeg",
+          thumbnailUrl:
+            "https://ik.imagekit.io/kitkitkitit/survivalstack/tr:q-100,ar-6-4,w-1000e-usm-2-2-0.8-0.024/jacket-creamy50.jpg",
           checked: false
         }
       ]
@@ -183,7 +184,9 @@ export default {
       this.$router.push("/");
     }
   },
-  created() {}
+  created() {
+    
+  }
 };
 </script>
 

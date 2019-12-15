@@ -7,17 +7,9 @@
         </router-link>
       </div>
       <div class="filters">
-        <button class="category">
-          <img src="../assets/images/category.svg" />
-          <p>Category</p>
-        </button>
-        <button class="alphabet">
-          <img src="../assets/images/alphabet.svg" />
-          <p>Alphabetical</p>
-        </button>
-        <button class="checked">
-          <img src="../assets/images/checked.svg" />
-          <p>Ready</p>
+        <button class="gears">
+          <img src="../assets/images/gears.svg" />
+          <p>Gear List</p>
         </button>
         <button class="news">
           <img src="../assets/images/news.svg" />
@@ -40,7 +32,20 @@
           <p>Community</p>
         </button>
       </div>
-      <div class="footer"></div>
+      <div class="footer">
+        <button class="category" v-if="currentPage == 'gear list'">
+          <img src="../assets/images/category.svg" />
+          <p>Category</p>
+        </button>
+        <button class="alphabet" v-if="currentPage == 'gear list'">
+          <img src="../assets/images/alphabet.svg" />
+          <p>Alphabetical</p>
+        </button>
+        <button class="checked" v-if="currentPage == 'gear list'">
+          <img src="../assets/images/checked.svg" />
+          <p>Ready</p>
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -54,19 +59,17 @@ export default {
   },
   computed: {},
   methods: {
-    // closeMenubar () {
-    //     this.$emit("closeMenubar")
-    // },
-    // logout () {
-    //     this.$emit("logout")
-    // },
+    switchPage() {
+
+    }
     // redirectTo(path) {
     //     this.$emit("closeMenubar")
     //     this.$router.push(path)
     // }
   },
-  created() {},
-  props: []
+  created() {
+  },
+  props: [ "currentPage" ]
 };
 </script>
 <style scoped>
@@ -109,18 +112,22 @@ button {
 .logo img {
   width: 10em;
 }
-.filters img {
+.filters img, .footer img {
   width: 1.7em;
 }
-.filters p {
+.filters p, .footer p {
   margin-top: 0.5em;
   color: white;
   font-size: 0.8em;
 }
-.filters {
+.filters, .footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-auto-rows: 7rem;
   width: inherit;
+}
+.filters > *:hover, .footer > *:hover {
+  transition: all 0.2s;
+  background: rgba(0,0,0,0.5);
 }
 </style>

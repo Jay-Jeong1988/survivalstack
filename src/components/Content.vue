@@ -27,7 +27,7 @@ export default {
     Card
   },
   props: [
-    "customItems", "defaultItems"
+    "customItems", "defaultItems", "currentPage"
   ]
 };
 </script>

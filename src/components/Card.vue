@@ -14,12 +14,12 @@
       >
         <b-card-img
           style="
-            filter: contrast(0.5);
+            filter: contrast(0.8) brightness(1.2);
             border-radius: 10px;
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
             "
-          :src="`${item.pictureUrl}`"
+          :src="`${item.thumbnailUrl}`"
           alt="item image"
           fluid="true"
         ></b-card-img>
